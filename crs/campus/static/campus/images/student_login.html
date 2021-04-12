@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%load static %}
+{% block title %}Students-Login{% endblock %}
+
+
+{% block content%}
+
+<div class="jumbotron" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.jpg')">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{%static 'campus/images/login.jpg'% }" alt="Third slide">
+          </div>
+        </div>
+      </div>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_table}}
+        
+        
+            <tr>  <td><p><button type="submit"  class="btn btn-lg btn-primary  d-inline-flex " style="font-family: Comic Sans MS, cursive, sans-serif" >Login</button></p></td></tr>
+        </form>
+                </tr>
+                <tr>
+                <td><center>
+        <a href="http://127.0.0.1:8000/student/student_register " class=" d-inline-flex "  style="color:deepskyblue"><b><i>New user register</i></b></a>
+                </center></td>
+        </tr>
+        </table>
+        </html>
+  </div>
+
+
+{%endblock%}
