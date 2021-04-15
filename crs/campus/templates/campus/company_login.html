@@ -1,62 +1,104 @@
-<!DOCTYPE html>
-
+{%extends 'base.html'%}
 {%load static %}
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'campus/style1.css' %}" type="text/css">
+{% block title %}Comapny-Login{% endblock %}
+{% block othermeta %}
 
-   <style>
-
-.topnav {
-  overflow: hidden;
-  background-color: black;
-}
-
-.active
-{background-color: black;
-   padding-left: 5rem;
-    padding-right: 5rem;
-    color: #aba8a8;
-
-}
-
-.d{
-    padding-left: 3rem;
-    padding-right: 3rem;
-    font-family: Comic Sans MS, cursive, sans-serif;
-    font-size: 1.5rem;
-    color: #aba8a8;
-}
-</style>
-
-<table class="topnav" >
-<tr>
-<td class="d">
-  <a class="active" href="http://127.0.0.1:8000/">Home</a>
-</td>
-<td class="d">
-    <a  class="active" href="http://127.0.0.1:8000/student/student_login/"  >student login</a>
-</td>
-    <td class="d">
-        <a  class="active" href="http://127.0.0.1:8000/company/company_login/" >comapny login</a>
-</td>
-<td class="d" style="padding-left: 7.23rem">
-    {% if user.is_authenticated %}
-
-        <a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
-
-{% else %}
-  <p >You are not logged in</p>
-    {% endif %}
-</td>
-</tr>
-</table>
+<title>Company Login</title>
 
 
-</head>
-<p style="color: black;font-size: 3rem; position:absolute;top:50px;left: 550px">
+<!--Needed for salesforce-->
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/company.css'%}">
+{% endblock %}
+
+{% block content%}
+<div class="page">
+    <!--Login & Signup in single row-->
+    <div class="row">
+        <!--Column for signin-->
+        <div class="col-sm-8 text-center signin">
+            <!-- Default form login -->
+            <form action="#!">
+                <p class="h4 mb-4 text-center signintext top"><strong>Sign in to Company Portal</strong></p>
+                <!--Login with Social Media Buttons-->
+                <div class="social-btn text-center"> <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a> <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a> <a href="#" class="btn btn-danger btn-lg" title="Pinterest"><i class="fa fa-pinterest"></i></a> </div>
+                <p class="text-center signintext">Or use your Email account</p> 
+				<!-- Email --> 
+				<div class="h4 mb-4 text-center signintext top"> <label class="mb-1"><h6 class="mb-0 text-sm">Username: {{form.username}}</h6></label></div> 
+				<!-- Password --> 
+				<div class="h4 mb-4 text-center signintext top"> <label class="mb-1"><h6 class="mb-0 text-sm">Password: {{form.password}}</h6></label></div> 
+				<!-- Sign in button --> 
+				<a class="ForgotPassBtn" href="">Forgot Your Password?</a> 
+				<button class="btn btn-info btn-block LoginBtn" type="submit">SIGN IN</button>
+				<a href="http://127.0.0.1:8000/company/company_register"  class="btn btn-info btn-block LoginBtn">Register</a>
+
+            </form>
+        </div>
+        <!--Column for signin-->
+        <div class="col-sm-4 signup text-center">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% comment %} <div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/5LdP2GW/fb.png" height="30px" width="30px" /></i></a>
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/5Ww6T5p/g.png" height="30px" width="30px" /></i></a>
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/17P4PLV/l.jpg" height="30px" width="30px" /></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button><a href="index.html">Sign Up</a></button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form method="post">
+            {% csrf_token %}
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/5LdP2GW/fb.png" height="30px" width="30px" /></i></a>
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/5Ww6T5p/g.png" height="30px" width="30px" /></i></a>
+				<a href="#" class="social"><i class=""><img src="https://i.ibb.co/17P4PLV/l.jpg" height="30px" width="30px" /></i></a>
+			</div>
+			<span>or use your account</span>
+            <div>{{form.username}}</div>
+			<div>{{form.password}}</div>
+
+			<a href="#">Forgot your password?</a>
+			<button type="submit">Login</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<br> 
+                <h1> Welcome Back!</h1>
+				<p>
+        To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn" onClick="signin()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right"><br> 
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp" onClick="signup()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  <script  src="{% static 'campus/company.js' %}"></script> {% endcomment %}
+
+{% comment %} <p style="color: black;font-size: 3rem; position:absolute;top:50px;left: 550px">
 COMPANY LOGIN
     </p>
 <table class="hi">
@@ -76,4 +118,4 @@ COMPANY LOGIN
         </center></td>
 </tr>
 </table>
-</html>
+</html> {% endcomment %}
