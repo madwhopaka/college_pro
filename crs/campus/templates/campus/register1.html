@@ -1,6 +1,54 @@
 {% extends 'base.html' %}
 {%load static %}
+{% block title %}Comapny-Register{% endblock %}
+{% block othermeta %}
 
+<title>Company Register</title>
+
+
+<!--Needed for salesforce-->
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/compyreg.css'%}">
+{% endblock %}
 {% block content%}
 
+<div class="page">
+<div class="container">
+            <form method="post" class="form-horizontal" role="form">
+             {% csrf_token %}
+                <h2>Registration</h2>
+                <table>
+                {{ form.as_table }}
+                 <tr>
+                    <td></td>
+                     <td><button type="submit" name="submit" value="Register" style="font-size: 1.5rem;font-family: Comic Sans MS, cursive, sans-serif" >REGISTER</button></td>
+                </tr>
+             </table>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->	
+</div>
 {%endblock%}
+            
+{% comment %} <div class="parent-div">
+  <div class="row">
+   <div class="col-xl-6">
+    <form method="post">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+          <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small> 
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+ </div> {% endcomment %}
