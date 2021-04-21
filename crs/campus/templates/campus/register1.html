@@ -10,45 +10,53 @@
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 {% endblock %}
 {% block styles %}
-<link rel="stylesheet" href="{%static 'campus/compyreg.css'%}">
+<link rel="stylesheet" href="{%static 'campus/comreg.css'%}">
 {% endblock %}
 {% block content%}
 
 <div class="page">
-<div class="container">
-            <form method="post" class="form-horizontal" role="form">
+<!--Login & Signup in single row-->
+    <div class="row">
+    <!--Column for signup-->
+        <div class="col-sm-8 text-center signin">
+        <!-- Default form signup -->
+            <form method="post">
              {% csrf_token %}
-                <h2>Registration</h2>
-                <table>
-                {{ form.as_table }}
-                 <tr>
-                    <td></td>
-                     <td><button type="submit" name="submit" value="Register" style="font-size: 1.5rem;font-family: Comic Sans MS, cursive, sans-serif" >REGISTER</button></td>
-                </tr>
-             </table>
+                <p class="h4 mb-4 text-center signintext top"><strong>REGISTRATION</strong></p>
+                <!--Login with Social Media Buttons-->
+                <div class="social-btn text-center"> <a href="#" class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a> <a href="#" class="btn btn-info btn-lg" title="Twitter"><i class="fa fa-twitter"></i></a> <a href="#" class="btn btn-danger btn-lg" title="Pinterest"><i class="fa fa-pinterest"></i></a> </div>
+                <table class="table">
+                <!-- Username --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Username: </h6></label></td><td> <h6 class="mb-0 text-sm">{{form.username}} </h6></td></tr>
+                <!-- Company name --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Company Name: </h6></label><td> <h6 class="mb-0 text-sm">{{form.company_name}} </h6></td></tr>
+                <!-- Est year --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Est Year: </h6></label><td> <h6 class="mb-0 text-sm">{{form.est_year}} </h6></td></tr>
+                <!-- hr_name --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">HR Name: </h6></label><td> <h6 class="mb-0 text-sm">{{form.hr_name}} </h6></td></tr>
+                <!-- hr_phn --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">HR Phone: </h6></label><td> <h6 class="mb-0 text-sm">{{form.hr_phn}} </h6></td></tr>
+                <!-- headquarters --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Headquarters: </h6></label><td> <h6 class="mb-0 text-sm">{{form.headquaters}} </h6></td></tr>
+                <!-- about --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">About: </h6></label><td> <h6 class="mb-0 text-sm">{{form.about}} </h6></td></tr>
+                <!-- type --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Type: </h6></label><td> <h6 class="mb-0 text-sm">{{form.type}} </h6></td></tr>
+                <!-- email --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Email: </h6></label><td> <h6 class="mb-0 text-sm">{{form.email}} </h6></td></tr>
+                <!-- password1 --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Password: </h6></label><td> <h6 class="mb-0 text-sm">{{form.password1}} </h6></td></tr>
+                <!-- password2 --> 
+				<tr class="h4 mb-4 text-center signintext top"> <td><label class="mb-1"><h6 class="mb-0 text-sm">Pass Confirmation: </h6></label><td> <h6 class="mb-0 text-sm">{{form.password2}} </h6></td></tr>
+                <!-- Sign up button -->
+                </table>
+                <button class="btn btn-info btn-block LoginBtn" type="submit" name="submit" value="Register">REGISTER</button>
+                <a href="http://127.0.0.1:8000/company/company_login"  class="btn btn-info btn-block LoginBtn">SIGN IN</a>
             </form> <!-- /form -->
-        </div> <!-- ./container -->	
+        </div>
+        <!--Column for signin-->
+        <div class="col-sm-4 signup text-center">
+        </div>
+    </div>
 </div>
 {%endblock%}
-            
-{% comment %} <div class="parent-div">
-  <div class="row">
-   <div class="col-xl-6">
-    <form method="post">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-          <small id="emailHelp1" class="form-text text-muted">We'll never share your email with anyone else.</small> 
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
- </div> {% endcomment %}
