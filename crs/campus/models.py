@@ -39,7 +39,7 @@ class stu_details(models.Model):
     certifications_count = models.IntegerField(blank=False)
     internship = models.CharField(blank=False, choices=done,max_length=10)
     languages = models.CharField(max_length=100, blank=False, help_text='*required')
-    sop = models.CharField(max_length=500, default="statement of purpose", help_text='*required')
+    sop = models.CharField(max_length=500, help_text='*required')
     dob = models.DateField(blank=False, help_text='*format is YYYY-MM-DD', )
     email = models.EmailField(max_length=254, blank=False, help_text='Required. Inform a valid email address.',default="anudeep.insvirat@gmail.com")
 

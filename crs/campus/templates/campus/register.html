@@ -82,37 +82,114 @@
               <div class="col-lg-6">
                 <div class="card2 card border-0 px-4 py-5">
                  
-                  <form method="post">
-                      <h1 class="mb-4" style ="text-align: center; color:orange;"  >Register as Student</h1>
-                    {% csrf_token %}
-                    <div class="row px-3" > <label class="mb-1 d-flex" style="justify-content: space-evenly   ">
-                        <h6 class=" text-sm">First Name</h6>  
-                      </label>
-                      
-                    </div>
-                    <div class="mb-3">{{form.first_name}}</div>
+                  <form method="post" >
+                      {% csrf_token %}
                     
-
-                    <div class="row px-3"> <label class="mb-1">
-                        <h6 class="mb-0 text-sm">Last Name</h6>
-                      </label>
-                    </div>
-                    <div class="mb-3">{{form.last_name}}</div>
-                    
-
                     <div class="row px-3"> <label class="mb-1">
                         <h6 class="mb-0 text-sm">Username</h6>
                       </label>
                     </div>
-                    <div>{{form.username}}</div>
-                    <p style = "color:blue;">*Must be alphanumeric</p>
+                    <div class="mb-3">{{form.username}}</div>
+                      
+                      
+                      <div class="row px-3" > <label class="mb-1 d-flex" style="justify-content: space-evenly   ">
+                        <h6 class=" text-sm">Name</h6>  
+                      </label>
+                      
+                    </div>
+                    <div class="mb-3">{{form.name}}</div>
+                    
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Phone no</h6>
+                      </label>
+                    </div>
+                    <div class="mb-3">{{form.phone_number}}</div>
+                    
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Father's Name</h6>
+                      </label>
+                    </div>
+                    <div>{{form.fathers_name}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Mother's Name</h6>
+                      </label>
+                    </div>
+                    <div>{{form.mothers_name}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Gender</h6>
+                      </label>
+                    </div>
+                    <div>{{form.gender}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Place</h6>
+                      </label>
+                    </div>
+                    <div>{{form.place}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Branch</h6>
+                      </label>
+                    </div>
+                    <div>{{form.branch}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">CGPA BE</h6>
+                      </label>
+                    </div>
+                    <div>{{form.cgpa_Btech}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Class 10 CGPA</h6>
+                      </label>
+                    </div>
+                    <div>{{form.class_10_cgpa}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Class 12 Percentage</h6>
+                      </label>
+                    </div>
+                    <div>{{form.class_12_percentage}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Certificates</h6>
+                      </label>
+                    </div>
+                    <div>{{form.certifications_count}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Internship</h6>
+                      </label>
+                    </div>
+                    <div>{{form.internship}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Languages</h6>
+                      </label>
+                    </div>
+                    <div>{{form.languages}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">sop</h6>
+                      </label>
+                    </div>
+                    <div>{{form.sop}}</div>
+
+                    <div class="row px-3"> <label class="mb-1">
+                        <h6 class="mb-0 text-sm">Date of birth</h6>
+                      </label>
+                    </div>
+                    <div>{{form.dob}}</div>
 
                     <div class="row px-3"> <label class="mb-1">
                         <h6 class="mb-0 text-sm">Email</h6>
                       </label>
                     </div>
                     <div>{{form.email}}</div>
-                    <p style = "color:blue;">*For verification</p>
 
                     <div class="row px-3"> <label class="mb-1">
                         <h6 class="mb-0 text-sm">Create Password</h6>

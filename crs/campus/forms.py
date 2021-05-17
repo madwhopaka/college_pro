@@ -5,12 +5,43 @@ from .models import stu_details,job_pos
 from django.forms.widgets import DateInput,CheckboxSelectMultiple
 from django.http import request
 
+done = (
+    ('yes', 'yes'),
+    ('no', 'no'),
+)
 
+branch_choices = (
+        ('it', 'information_technology'),
+        ('me', 'mech'),
+        ('ce', 'civil'),
+        ('eee', 'eee'),
+        ('ece', 'ece'),
+        ('ch', 'chemical'),
+        ('cse', 'cse'),
+    )
+
+gender = (
+        ('male', 'male'),
+        ('female', 'female'),
+        ('others','others'))
 
 
 class Student_SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=True, help_text='*required')
-    last_name = forms.CharField(max_length=30, required=True, help_text='*required')
+    name = forms.CharField(max_length=30, required=True, help_text='*required')
+    phone_number = forms.CharField(max_length=10, min_length=10,help_text='*required')
+    fathers_name = forms.CharField(max_length=30, help_text='*required')
+    mothers_name = forms.CharField(max_length=30, help_text='*required')
+    gender=forms.ChoiceField(choices=gender)
+    place = forms.CharField(max_length=30)
+    branch = forms.ChoiceField(choices=branch_choices)
+    cgpa_Btech = forms.FloatField(max_value=10, min_value=0,help_text='*required')
+    class_10_cgpa = forms.FloatField(max_value=10, min_value=0,help_text='*required')
+    class_12_percentage = forms.FloatField(max_value=100, min_value=0,help_text='*required')
+    certifications_count = forms.IntegerField(max_value=10)
+    internship = forms.ChoiceField(choices=done)
+    languages = forms.CharField(max_length=100, help_text='*required')
+    sop = forms.CharField(max_length=500, help_text='*required')
+    dob = forms.CharField(max_length=10, help_text='*format is YYYY-MM-DD', )
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     class Meta:
         model = User
