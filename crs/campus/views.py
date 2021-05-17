@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView
-from .models import stu_details, comp_details, job_pos, applied_jobs ,User
+from .models import stu_details, comp_details, job_pos, applied_jobs, User
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.views.generic import TemplateView
@@ -108,11 +108,22 @@ def usd(request):
 def dispstu(request):
     if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
         stu = request.user.username
-        post = User.objects.filter(username=stu)
-        form = dispstuForm()
-        return render(request, 'campus/dispstu.html', {'form': form, 'post': post[0]})
+        post = stu_details.objects.filter(username=stu)
+
+        if post.exists():
+            return render(request, 'campus/dispstu.html', {'post': post[0]})
+
+        
+        form = dispstuForm(request.POST)
+        return render(request, 'campus/dispstu.html', {'form': form})
+
     else:
         return HttpResponse("<h1>u r not logged in</h1>")
+
+
+def fillStudetails(request):
+    if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
+        stu = request.user.username
 
 
 def company_register(request):
