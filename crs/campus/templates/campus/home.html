@@ -1,3 +1,5 @@
+
+{%extends 'base.html'%}
 <!doctype html>
 <html lang="en">
 {%load static %}
@@ -11,6 +13,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
+    body {
+
+      background-color:darkorange;
+  }
     .carousel .item {
       height: 300px;
     }
@@ -21,46 +27,23 @@
       left: 0;
       min-height: 300px;
     }
+     p{
+       font-family:Arial, Helvetica, sans-serif ;
+       margin-top :20px;
+       font-size :large;
+       font-weight:400;
+       color: grey;
+     }
+
   </style>
   <title>Placement Cell | Home</title>
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Atharva's Placement Cell</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="http://127.0.0.1:8000/ ">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://127.0.0.1:8000/student/student_login/">Student </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://127.0.0.1:8000/company/company_login/">Company</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://127.0.0.1:8000/admin">Admin</a>
-        </li>
-      </ul>
-
-      <div class="nav-item">
-        {% if user.is_authenticated %}
-        <a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
-        {% else %}
-        <p>You are not logged in</p>
-        {% endif %}
-      </div>
-
-    </div>
-  </nav>
-
+ 
+  
+  
+{% block content%}
 
   <div class="container m4">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -91,7 +74,7 @@
       </a>
     </div>
     
-    <div class="container mt-3 mb-4 m4">
+    <div class="container-fluid mt-3 mb-4 m4">
 
       <div class="row">
         <div class="col-sm-6">
@@ -266,6 +249,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
+      {%endblock%}
 </body>
 
 </html>

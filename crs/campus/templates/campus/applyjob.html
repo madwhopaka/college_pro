@@ -1,3 +1,4 @@
+{%extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +52,7 @@
 </tr>
 </table>
 
+{%block content%}
 </head>
 <body style="font-size: 1rem;font-family: Comic Sans MS, cursive, sans-serif;background-color: dimgrey">
 <h1>{{ s }}</h1>
@@ -85,5 +87,7 @@
 
 
 </form>
+{%endblock%}
 </body>
+
 </html>

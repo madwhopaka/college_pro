@@ -12,8 +12,8 @@
 
 
 {% block content%}
-
-<div class = "container-fluid" style="background-image:url({% static '/campus/images/campusbackground.jpg' %}); background-size :cover; margin-top:5px;padding:20px">
+{%load static %}
+<div class = "container-fluid" style="background-image:url('{% static '/campus/images/campusbackground.jpg' %}'); background-size :cover; padding:30px;">
 <div class="container  mt-5 mx-auto">
   <div class="card card0 border-0">
     <div class="row d-flex">
@@ -43,6 +43,13 @@
             <div class="line"></div>
           </div>
           <form method="post">
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
             {% csrf_token %}
             <div class="row px-3"> <label class="mb-1">
                 <h6 class="mb-0 text-sm">Username</h6>
