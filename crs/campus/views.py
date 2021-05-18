@@ -89,9 +89,6 @@ def student_register(request):
         form = Student_SignUpForm()
         return render(request, 'campus/register.html', {'form': form})
 
-# @login_required
-# @user_passes_test(lambda u: u.groups.filter(name='Student').count() == 1)
-
 
 def usd(request):
     if request.user.is_authenticated and request.user.groups.filter(name='student').exists():
