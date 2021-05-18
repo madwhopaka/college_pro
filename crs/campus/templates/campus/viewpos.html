@@ -1,97 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>POSTED VACANCIES</title>
+{%extends 'base.html'%}
+{%load static %}
+{% block title %}Company-Login{% endblock %}
+{% block othermeta %}
 
-<style>
+<title>Posted Vacancies</title>
 
-.topnav {
-  overflow: hidden;
-  background-color: black;
-}
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/viewpos.css'%}">
+{% endblock %}
 
-.active
-{background-color: black;
-   padding-left: 5rem;
-    padding-right: 5rem;
-    color: #aba8a8;
+{% block content%}
 
-}
+{% comment %} <center><h1 style="font-size:3rem;color: #bd2130">POSTED VACANCIES</h1></center> {% endcomment %}
 
-.d{
-    padding-left: 3rem;
-    padding-right: 3rem;
-    font-family: Comic Sans MS, cursive, sans-serif;
-    font-size: 1.5rem;
-    color: #aba8a8;
-}
-</style>
+<div class="form-block">
+        <div class="form-ul-block">
+            <form method="post">
+            {% csrf_token %}
 
-<table class="topnav" >
-<tr>
-<td class="d">
-  <a class="active" href="http://127.0.0.1:8000/">Home</a>
-</td>
-<td class="d">
-    <a  class="active" href="http://127.0.0.1:8000/student/student_login/"  >student login</a>
-</td>
-    <td class="d">
-        <a  class="active" href=" http://127.0.0.1:8000/company/company_login/  ">comapny login</a>
-</td>
-<td class="d" style="padding-left: 5rem">
-    {% if user.is_authenticated %}
+                <div class="aligned">
+                <img src="{% static '/campus/images/vacancy.jpg' %}" width="100" alt="">
+                <span><p class="h4 signintext top top1"><strong>POSTED VACANCIES</strong></p></span>
+                </div>
 
-        <a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
-
-{% else %}
-  <p >You are not logged in</p>
-    {% endif %}
-</td>
-</tr>
-</table>
-
-</head>
-<body style="font-size: 1rem;font-family: Comic Sans MS, cursive, sans-serif;background-color: dimgrey">
-<h1>{{s}}</h1>
-<center><h1 style="font-size:3rem;color: #bd2130">POSTED VACANCIES</h1></center>
-<form method="post">
-     {% csrf_token %}
-    <table border="1px" style="text-align: center;border-collapse: collapse;background-color:blanchedalmond" width="100%"   >
-        <tr >
-            <th style="font-size:1.5rem;color: #ffc107">job id</th>
-            <th style="font-size:1.5rem;color: #ffc107">designation</th>
-                 <th style="font-size:1.5rem;color: #ffc107">salary</th>
-            <th style="font-size:1.5rem;color: #ffc107">bond_years</th>
-            <th style="font-size:1.5rem;color: #ffc107">IT</th>
-            <th style="font-size:1.5rem;color: #ffc107">mech</th>
-            <th style="font-size:1.5rem;color: #ffc107">civil</th>
-            <th style="font-size:1.5rem;color: #ffc107">ece</th>
-            <th style="font-size:1.5rem;color: #ffc107">eee</th>
-            <th style="font-size:1.5rem;color: #ffc107">cse</th>
-            <th style="font-size:1.5rem;color: #ffc107">chemical</th>
-
-
-
-        </tr>
-        {%  for i in y %}
-        <tr>
-            <td>{{ i.job_id }}</td>
-        <td>{{ i.designation }}</td>
-        <td>{{ i.salary }}</td>
-        <td>{{ i.bond_years }}</td>
-        <td>{{ i.information_technology }}</td>
-        <td>{{ i.mech }}</td>
-        <td>{{ i.civil }}</td>
-        <td>{{ i.ece }}</td>
-        <td>{{ i.eee }}</td>
-        <td>{{ i.cse }}</td>
-        <td>{{ i.chemical }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
-
-</form>
-</body>
-</html>
+                <table class="table table1"> 
+				<tr class="form-ul"> 
+                    <th><label><h5>Job id</h5></label><th> 
+                    <th><label><h5>Designation</h5></label><th> 
+                    <th><label><h5>Salary</h5></label><th> 
+                    <th><label><h5>Bond years</h5></label><th> 
+                    <th><label><h5>IT</h5></label><th> 
+                    <th><label><h5>MECH</h5></label><th> 
+                    <th><label><h5>CIVIL</h5></label><th> 
+                    <th><label><h5>ECE</h5></label><th> 
+                    <th><label><h5>EEE</h5></label><th> 
+                    <th><label><h5>CSE</h5></label><th> 
+                    <th><label><h5>CHEMICAL</h5></label><th> 
+                </tr>
+                {%  for i in y %}
+                <tr class="form-ul">
+                    <th><label ><h6 >{{ i.job_id }}</h6></label><th>
+                    <th><label ><h6 >{{ i.designation }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.salary }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.bond_years }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.information_technology }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.mech }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.civil }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.ece }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.eee }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.cse }}</h6></label><th> 
+                    <th><label ><h6 >{{ i.chemical }}</h6></label><th> 
+                </tr>
+                {% endfor %}
+                </table>
+    {% comment %} <input type="submit" value="delete"> {% endcomment %}
+            </form>
+        </div>        
+</div>
+{% endblock %}
