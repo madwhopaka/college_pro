@@ -32,7 +32,12 @@
 	
 	<div class="form-ul-block">
 		<form method="post">
-        {% csrf_token %}         
+        {% csrf_token %}
+        <div>
+          <div style='float:left; margin-top:10px'>  
+            <img src="{% static '/campus/images/update.jpg' %}" width="200" alt="">
+          </div>
+          <div style='float:right; margin-top:25px'>
             <table>
                 {% comment %} <tr class="form-ul">
                   <th><label for="id_sop"><h5>SOP:</h5></label><th>
@@ -75,7 +80,11 @@
                   <td><input type="text" name="email" value={{ l }} id="id_email"></td>
                 </tr> 
             </table>
+            <div style='margin-left:95px'>
             <button type="submit" name="submit" value="Register" class="button">Modify</button>
+            </div>
+          </div>
+        </div>
 		</form>
 	</div>
 	
