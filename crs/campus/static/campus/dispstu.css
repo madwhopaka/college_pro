@@ -11,8 +11,8 @@ body {
 
 .form-block {
 	display: block;
-	width: 450px;
-	height: 750px;
+	width: 740px;
+	height: 720px;
 	background: url('https://wallpaperaccess.com/full/449895.jpg') no-repeat;
 	background-size: cover;
 	margin: 70px auto;
@@ -25,8 +25,7 @@ body {
 
 .form-ul-block {
 	display: block;
-	margin: 0 auto;
-	width: 300px;
+	margin: 30px;
 }
 
 .form-ul {
@@ -35,7 +34,6 @@ body {
 }
 
 .form-ul > th {
-	width: 100%;
     color: #483D8B;
 }
 

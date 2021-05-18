@@ -16,9 +16,14 @@
 <div class="form-block">
 
 	<div class="form-ul-block">
-		<form method="get">         
+		<form method="get">
+      <div>
+          <div style='float:left; margin-top:10px'>  
+            <img src="{% static '/campus/images/student.jpg' %}" width="200" alt="">
+          </div>
+          <div style='float:right; margin-top:25px'>           
             <table> 
-				<tr class="form-ul"> 
+				        <tr class="form-ul"> 
                   <th><label><h5>Name:</h5></label><th>
                   <th><label><h6>{{post.name}}</h6></label></th> 
                 </tr>
@@ -67,6 +72,8 @@
                   <th><label><h6>{{post.email}}</h6></label></th> 
                 </tr>                 
             </table>
+          </div>
+      </div>
 		</form>
 	</div>
 	
