@@ -100,23 +100,44 @@ def usd(request):
             if form.is_valid():
                 stu = request.user.username
                 post = stu_details.objects.filter(username=stu)
-                x = request.POST.get('sop')
+                a = request.POST.get('name')
                 y = request.POST.get('phone_number')
+                f = request.POST.get('place')
+                h = request.POST.get('cgpa_Btech')
+                g = request.POST.get('class_10_cgpa')
+                e = request.POST.get('class_12_percentage')
+                i = request.POST.get('certifications_count')
+                j = request.POST.get('internship')
+                k = request.POST.get('languages')
+                l = request.POST.get('email')
                 j = post[0]
-                j.sop = x
+                j.name = a
                 j.phone_number = y
+                j.place = f
+                j.cgpa_Btech = h
+                j.class_10_cgpa = g
+                j.class_12_percentage = e
+                j.certifications_count = i
+                j.languages = k
+                j.email = l
                 j.save()
                 return render(request, 'campus/stulog.html')
 
         else:
             stu = request.user.username
             post = stu_details.objects.filter(username=stu)
-            x = post[0].sop
-            x = str(x)
             y = post[0].phone_number
-            print(x, y, post)
+            print(y, post)
             form = UsdForm()
-            return render(request, 'campus/usd.html', {'form': form, 'x': x, 'y': y})
+            a = post[0].name
+            f = post[0].place
+            h = post[0].cgpa_Btech
+            g = post[0].class_10_cgpa
+            e = post[0].class_12_percentage
+            i = post[0].certifications_count
+            k = post[0].languages
+            l = post[0].email
+            return render(request, 'campus/usd.html', {'form': form, 'a': a, 'y': y, 'f': f, 'h': h, 'g': g, 'e': e, 'i': i, 'k': k, 'l': l})
     else:
         return HttpResponse('you are not logged in !')
 
@@ -254,7 +275,6 @@ def jd(request):
     if request.user.is_authenticated and request.user.groups.filter(name='company').exists():
         if request.method == "POST":
             s = ""
-            print("hiiiiiii")
             book = job_pos.objects.filter(job_id=request.POST.get("job_id"))
             print(len(book))
             if(len(book) != 1):
@@ -381,7 +401,7 @@ def apply(request, opt):
             job.company_id = y
             job.job_id = opt
             job.save()
-            return HttpResponse("<h1>you have applied succesfully... all the best</h1>")
+            return HttpResponse("<h1>APPLIED SUCCESSFULLY</h1>")
 
         else:
             c = job_pos.objects.filter(job_id=opt)[0].username

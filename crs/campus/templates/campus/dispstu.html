@@ -1,32 +1,130 @@
-{%extends 'base.html' %}
+{%extends 'base.html'%}
+{%load static %}
+{% block title %}Student-Login{% endblock %}
+{% block othermeta %}
 
+<title>Display Details</title>
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/dispstu.css'%}">
+{% endblock %}
 {%block content%}
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+<div class="form-block">
+	
+	<div class="form-ul-block">
+		<form method="get">         
+            <table> 
+				<tr class="form-ul"> 
+                  <th><label><h5>Name:</h5></label><th>
+                  <th><label><h6>{{post.name}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Phone no:</h5></label><th>
+                  <th><label><h6>{{post.phone_number}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Place:</h5></label><th>
+                  <th><label><h6>{{post.place}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Branch:</h5></label><th>
+                  <th><label><h6>{{post.branch}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>CGPA BE:</h5></label><th>
+                  <th><label><h6>{{post.cgpa_Btech}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Class 10 CGPA:</h5></label><th>
+                  <th><label><h6>{{post.class_10_cgpa}}</h6></label></th>
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Class 12 percentage:</h5></label><th>
+                  <th><label><h6>{{post.class_12_percentage}}</h6></label></th>
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Certificates:</h5></label><th>
+                  <th><label><h6>{{post.certifications_count}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Internship:</h5></label><th>
+                  <th><label><h6>{{post.internship}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Languages:</h5></label><th>
+                  <th><label><h6>{{post.languages}}</h6></label></th>
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Date of Birth:</h5></label><th>
+                  <th><label><h6>{{post.dob}}</h6></label></th> 
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>Email:</h5></label><th>
+                  <th><label><h6>{{post.email}}</h6></label></th> 
+                </tr>                 
+            </table>
+		</form>
+	</div>
+	
+</div>
+
+{% comment %} 
+<ul class="form-ul">
+				<li>
+					<div><label>E-Mail: {{ post.username }}</label>
+					</div>
+				</li>
+				<li>
+					<div>
+						<label for="">Fullname</label>
+						<input name="fullname" type="text" />
+					</div>
+				</li>
+				<li>
+					<div>
+						<label for="">Password</label>
+						<input data-required="true" name="pwd1" type="text" />
+					</div>
+				</li>
+				<li>
+					<div>
+						<label for="">Confirm password</label>
+						<input data-required="true" name="pwd2" type="text" />
+					</div>
+				</li>
+				<li>
+					<div>
+						<button>Sign in</button>
+						<a href="#">Forgot password?</a>
+					</div>
+				</li>
+			</ul> {% endcomment %}
 
 
-<form method="post">
+{% comment %} <form method="get">
     {% csrf_token %}
     <h1>PROFILE</h1>
-    <p>reg num:<b>{{ form.username }}</b></p>
-    <p>name :<b>{{ form.first_name}} {{form.last_name}}</b></p>
-    <p>father's name:<b>{{ form.fathers_name}}</b></p>
-    <p>mother's name:<b>{{ form.mothers_name}}</b></p>
-    <p>gender:<b>{{ form.gender}}</b></p>
-    <p>place:<b>{{ form.place}}</b></p>
-    <p>branch:<b>{{ form.branch}}</b></p>
-    <p>Btech(cgpa):<b>{{ form.cgpa_Btech}}</b></p>
-    <p>10 class(cgpa):<b>{{ form.class_10_cgpa}}</b></p>
-    <p>12 class(cgpa):<b>{{ form.class_12_percentage}}</b></p>
-    <p>certifications count:<b>{{ form.certifications_count}}</b></p>
-    <p>internship:<b>{{ form.internship}}</b></p>
-    <p>languages:<b>{{ form.languages}}</b></p>
-    <p>sop:<b>{{ form.sop}}</b></p>
-    <p>dob:<b>{{ form.dob}}</b></p>
+    <p>reg num:<b>{{ post.username }}</b></p>
+    <p>name :<b>{{ post.name }}</b></p>
+    <p>father's name:<b>{{ post.fathers_name}}</b></p>
+    <p>mother's name:<b>{{ post.mothers_name}}</b></p>
+    <p>gender:<b>{{ post.gender}}</b></p>
+    <p>place:<b>{{ post.place}}</b></p>
+    <p>branch:<b>{{ post.branch}}</b></p>
+    <p>Btech(cgpa):<b>{{ post.cgpa_Btech}}</b></p>
+    <p>10 class(cgpa):<b>{{ post.class_10_cgpa}}</b></p>
+    <p>12 class(cgpa):<b>{{ post.class_12_percentage}}</b></p>
+    <p>certifications count:<b>{{ post.certifications_count}}</b></p>
+    <p>internship:<b>{{ post.internship}}</b></p>
+    <p>languages:<b>{{ post.languages}}</b></p>
+    <p>sop:<b>{{ post.sop}}</b></p>
+    <p>dob:<b>{{ post.dob}}</b></p>
 
 
-</form>
+</form> {% endcomment %}
 
 {%endblock%}

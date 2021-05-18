@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+* {
+	outline: none;
+}
+
+body {
+    background-image: url(https://coolbackgrounds.io/images/backgrounds/white/white-triangle-369b8d2d.jpg);
+    background-size: cover;
+}
+
+.form-block {
+	display: block;
+	width: 700px;
+	height: 650px;
+	background: url('https://wallpaperaccess.com/full/449895.jpg') no-repeat;
+	background-size: cover;
+	margin: 70px auto;
+	border-radius: 6px;
+	box-shadow: 0 5px 20px #666;
+	font-family: 'Open Sans';
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.form-ul-block {
+	display: block;
+	margin: 30px ;
+}
+
+.form-ul {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.form-ul > th {
+    color: #483D8B;
+}
+
+.form-ul > th > label {
+	display: block;
+	float: left;
+	width: 100%;
+}
+
+.form-ul > th  > label {
+	opacity: 0.5;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 12px;
+}
+
+.form-ul > th > h6 > input {
+	padding: 8px 15px;
+	border: 0;
+	border-radius: 30px;
+	opacity: 1;
+	transition: all 0.5s;
+	color: #222;
+	border: 2px solid transparent;
+}
+
+h5 {
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+h6 {
+    color: black;
+	margin-top: 10px;
+
+}
+
+.button {
+    background-color: lightblue;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin: 30px;
+  }

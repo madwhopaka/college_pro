@@ -11,6 +11,12 @@ done = (
 
 
 class stu_details(models.Model):
+
+    done = (
+    ('yes', 'yes'),
+    ('no', 'no'),
+    )
+
     branch_choices = (
         ('it', 'information_technology'),
         ('me', 'mech'),

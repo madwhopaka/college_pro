@@ -45,13 +45,23 @@ class Student_SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name','email','password1', 'password2', )
+        fields = ('username', 'name','phone_number','fathers_name','mothers_name','gender','place','branch','cgpa_Btech','class_10_cgpa','class_12_percentage','certifications_count',\
+               'internship','languages','sop','dob')
         widgets={'dob':DateInput(attrs={'type':'date'})}
 
 
 class UsdForm(forms.Form):
-    sop = forms.CharField(max_length=500, initial="enter ur sop",required=True)
-    phone_number = forms.CharField(max_length=10,min_length=10,initial="enter ur phn num",required=True)
+    # sop = forms.CharField(max_length=500,required=True)
+    name = forms.CharField(max_length=30,required=True)
+    phone_number = forms.CharField(max_length=10,min_length=10,required=True)
+    place = forms.CharField(max_length=30,required=True)
+    cgpa_Btech = forms.FloatField(max_value=10, min_value=0,required=True)
+    class_10_cgpa = forms.FloatField(max_value=10, min_value=0,required=True)
+    class_12_percentage = forms.FloatField(max_value=100, min_value=0,required=True)
+    certifications_count = forms.IntegerField(max_value=10,required=True)
+    languages = forms.CharField(max_length=100,required=True)
+    email = forms.EmailField(max_length=254,required=True)
+    
 
 class dispstuForm(forms.ModelForm):
     class Meta:

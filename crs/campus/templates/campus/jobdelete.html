@@ -1,64 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DELETE VACANCY</title>
+{%extends 'base.html'%}
+{%load static %}
+{% block title %}Company-Login{% endblock %}
+{% block othermeta %}
 
-<style>
+<title>Job Delete</title>
 
-.topnav {
-  overflow: hidden;
-  background-color: black;
-}
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/jobdelete.css'%}">
+{% endblock %}
 
-.active
-{background-color: black;
-   padding-left: 5rem;
-    padding-right: 5rem;
-    color: #aba8a8;
+{% block content%}
 
-}
+<div class="page">
+    <div class="row">
+        <div class="col-sm-8 text-center signin">
+            <form method="post">
+            {% csrf_token %}
 
-.d{
-    padding-left: 3rem;
-    padding-right: 3rem;
-    font-family: Comic Sans MS, cursive, sans-serif;
-    font-size: 1.5rem;
-    color: #aba8a8;
-}
-</style>
+                <div class="aligned">
+                <img src="{% static '/campus/images/vacancy.jpg' %}" width="100" alt="">
+                <span><p class="h4 signintext top"><strong>DELETE VACANCY</strong></p></span>
+                </div>
 
-<table class="topnav" >
-<tr>
-<td class="d">
-  <a class="active" href="http://127.0.0.1:8000/">Home</a>
-</td>
-<td class="d">
-    <a  class="active" href="http://127.0.0.1:8000/student/student_login/"  >student login</a>
-</td>
-    <td class="d">
-        <a  class="active" href=" http://127.0.0.1:8000/company/company_login/  ">comapny login</a>
-</td>
-<td class="d" style="padding-left: 5rem">
-    {% if user.is_authenticated %}
+                <table class="table table1"> 
+				<tr class="h4 mb-4 text-center signintext top"> 
+                    <th><label for="id_job_id" class="mb-1 labeledit"><h6 class="mb-0 text-sm fontchanger">Job id:</h6></label><th> 
+                    <td><input type="text" name="jobid" size="10"></td>
+                </tr>
+                </table>
+                <button class="btn btn-info btn-block LoginBtn" type="submit" value="delete">DELETE</button>
+    {% comment %} <input type="submit" value="delete"> {% endcomment %}
+            </form>
+        </div>        
+    </div>
+</div>
 
-        <a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
-
-{% else %}
-  <p >You are not logged in</p>
-    {% endif %}
-</td>
-</tr>
-</table>
-
-</head>
-<body>
-<h1>{{ s }}</h1>
-<form method="post">
-     {% csrf_token %}
-
-    job id:<input type="text" size="10" name="jobid" placeholder="job id to delete" style="font-size: 1rem;font-family: Comic Sans MS, cursive, sans-serif"><br>
-    <input type="submit" value="delete" style="font-size: 1rem;font-family: Comic Sans MS, cursive, sans-serif">
-</form>
-</body>
-</html>
+{% endblock %}

@@ -1,62 +1,62 @@
-{%extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>APPLY JOB</title>
+{%extends 'base.html'%}
+{%load static %}
+{% block title %}Company-Login{% endblock %}
+{% block othermeta %}
 
-<style>
+<title>Apply Job</title>
 
-.topnav {
-  overflow: hidden;
-  background-color: black;
-}
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{%static 'campus/applyjob.css'%}">
+{% endblock %}
 
-.active
-{background-color: black;
-   padding-left: 5rem;
-    padding-right: 5rem;
-    color: #aba8a8;
+{% block content%}
 
-}
+<div class="form-block">
+	
+	<div class="form-ul-block">
+		<form method="post">  
+        {% csrf_token %}       
+            <table> 
+				<tr class="form-ul"> 
+                  <th><label><h5>MINIMUM SALARY: <input type="number" size="10" name="salary"></h5></label><th>
+                </tr>
+                <tr class="form-ul">
+                  <th><label><h5>MAXIMUM BOND YEARS: <input type="number" size="10" name="years"></h5></label><th>
+                </tr>
+                </table>
+                <input type="submit" value="SEARCH">
+            <table class="table">
+                <tr class="form-ul">
+                  <th><label><h5>company name</h5></label><th>
+                  <th><label><h5>designation</h5></label></th> 
+                  <th><label><h5>salary</h5></label></th> 
+                  <th><label><h5>bond years</h5></label></th> 
+                  <th><label><h5>APPLY</h5></label></th> 
+                </tr>
+                {%  for i in y %}
+                <tr class="form-ul">
+                  <th><label><h6>{{ i.company_name }}</h6></label><th>
+                  <th><label><h6>{{ i.designation }}</h6></label></th> 
+                  <th><label><h6>{{ i.salary }}</h6></label></th> 
+                  <th><label><h6>{{ i.bond_years }}</h6></label></th> 
+                  <th><label><h6><a href="http://127.0.0.1:8000/student/student_login/applyjob/{{ i.job_id }}/" target="popup" onclick="window.open('http://127.0.0.1:8000/student/student_login/applyjob/{{ i.job_id }}/','popup','width=600,height=600'); return false;">APPLY</a></h6></label></th> 
 
-.d{
-    padding-left: 3rem;
-    padding-right: 3rem;
-    font-family: Comic Sans MS, cursive, sans-serif;
-    font-size: 1.5rem;
-    color: #aba8a8;
-}
-</style>
+                </tr>
+                {% endfor %}             
+            </table>
+		</form>
+	</div>
+	
+</div
 
-<table class="topnav"  >
-<tr>
-<td class="d">
-  <a class="active" href="http://127.0.0.1:8000/">Home</a>
-</td>
-<td class="d">
-    <a  class="active" href="http://127.0.0.1:8000/student/student_login/"  >student login</a>
-</td>
-    <td class="d">
-        <a  class="active" href=" http://127.0.0.1:8000/company/company_login/  ">comapny login</a>
-</td>
-<td class="d" style="padding-left: 5rem">
-    {% if user.is_authenticated %}
 
-        <a href="http://127.0.0.1:8000/logout/">Hi {{ user.username }}! logout</a>
 
-{% else %}
-  <p >You are not logged in</p>
-    {% endif %}
-</td>
-</tr>
-</table>
+{% endblock %}
 
-{%block content%}
-</head>
-<body style="font-size: 1rem;font-family: Comic Sans MS, cursive, sans-serif;background-color: dimgrey">
+{% comment %} 
 <h1>{{ s }}</h1>
-<center><h1 style="font-size: 4rem;color: #bd2130">APPLY FOR JOB</h1></center>
 <form method="post">
      {% csrf_token %}
   <table>
@@ -86,8 +86,5 @@
     </table>
 
 
-</form>
-{%endblock%}
-</body>
-
-</html>
+</form> 
+{% endcomment %}
