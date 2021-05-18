@@ -17,7 +17,9 @@
 	
 	<div class="form-ul-block">
 		<form method="post">  
-        {% csrf_token %}       
+        {% csrf_token %}
+        <div>
+          <div style='float:left'>    
             <table> 
 				<tr class="form-ul"> 
                   <th><label><h5>Job ID: <input type="text" size="10" name="jobid"></h5></label><th>
@@ -31,7 +33,12 @@
                 <tr class="form-ul">
                   <th><label><h5>BE CGPA: <input type="number"step="0.01" size="10" name="btech" value="0" min="0" required max="10" ></h5></label><th>
                 </tr>
-                </table>
+            </table>
+           </div>
+           <div style='float:Right'>  
+            <img src="{% static '/campus/images/academics.jpg' %}" width="420" alt="">
+          </div>
+        </div>
                 <input type="submit" value="SEARCH">
             <table class="table">
                 <tr class="form-ul">
