@@ -18,14 +18,21 @@
 	<div class="form-ul-block">
 		<form method="post">  
         {% csrf_token %}       
+        <div>
+          <div style='float:left; margin-top:10px'>  
             <table> 
-				<tr class="form-ul"> 
+				        <tr class="form-ul"> 
                   <th><label><h5>MINIMUM SALARY: <input type="number" size="10" name="salary"></h5></label><th>
                 </tr>
                 <tr class="form-ul">
                   <th><label><h5>MAXIMUM BOND YEARS: <input type="number" size="10" name="years"></h5></label><th>
                 </tr>
-                </table>
+            </table>
+          </div>
+          <div style='float:right; margin-top:20px; margin-right:60px'>
+            <img src="{% static '/campus/images/company.jpg' %}" width="150" alt="">
+          </div>
+        </div>
                 <input type="submit" value="SEARCH">
             <table class="table">
                 <tr class="form-ul">

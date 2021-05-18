@@ -85,3 +85,8 @@ h6 {
     cursor: pointer;
     margin: 30px;
 }
+
+.aligned {
+	display: flex;
+    align-items: center;
+}
